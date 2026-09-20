@@ -10,6 +10,7 @@ module.exports = {
         path: path.resolve(__dirname, "dist")
     },
 
+    // Configurando o Web Server
     devServer: {
         static: {
             directory: path.join(__dirname, "dist")
@@ -19,11 +20,23 @@ module.exports = {
         liveReload: true
     },
 
+    // Configurando plugin para reconhecimento do HTML
     plugins: [
         new htmlWebPlugin(
             {
-                template: path.resolve(__dirname, "index.html")
+                template: path.resolve(__dirname, "index.html"),
+                favicon: path.resolve("src", "assets", "scissors.svg")
             }
         )
-    ]
+    ],
+
+    // Configurando a conexão com o css
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            }
+        ]
+    }
 }

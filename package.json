@@ -3,10 +3,15 @@
   "description": "Aplicação web para agendamento de corte de cabelo",
   "author": "Guilherme Moreira",
   "source": "Rocketseat",
-  "scripts":{
-    "server": "json-server --watch server.json --port 3333"
+  "scripts": {
+    "server": "json-server --watch server.json --port 3333",
+    "build": "webpack"
   },
   "dependencies": {
     "json-server": "^1.0.0-beta.15"
+  },
+  "devDependencies": {
+    "webpack": "^5.111.1",
+    "webpack-cli": "^7.2.3"
   }
 }

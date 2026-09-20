@@ -1,4 +1,8 @@
 {
+  "name": "Projeto - Hairday",
+  "description": "Aplicação web para agendamento de corte de cabelo",
+  "author": "Guilherme Moreira",
+  "source": "Rocketseat",
   "scripts":{
     "server": "json-server --watch server.json --port 3333"
   },

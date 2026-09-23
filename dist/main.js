@@ -31,6 +31,17 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _li
 
 /***/ },
 
+/***/ "./src/modules/form/hours-click.js"
+/*!*****************************************!*\
+  !*** ./src/modules/form/hours-click.js ***!
+  \*****************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   hoursClick: () => (/* binding */ hoursClick)\n/* harmony export */ });\nfunction hoursClick() {\n  const hours = document.querySelectorAll('.hour-available');\n  hours.forEach(available => {\n    available.addEventListener(\"click\", selected => {\n      // Remove a classe hour-selected de todas as li não selecioandas\n      hours.forEach(hour => {\n        hour.classList.remove(\"hour-selected\");\n      });\n\n      // Adiciona a classe na li clicada\n      selected.target.classList.add(\"hour-selected\");\n    });\n  });\n}\n\n//# sourceURL=webpack://Projeto_-_Hairday/./src/modules/form/hours-click.js?\n}");
+
+/***/ },
+
 /***/ "./src/modules/form/hours-load.js"
 /*!****************************************!*\
   !*** ./src/modules/form/hours-load.js ***!
@@ -38,7 +49,7 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _li
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   hoursLoad: () => (/* binding */ hoursLoad)\n/* harmony export */ });\n/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dayjs */ \"./node_modules/dayjs/dayjs.min.js\");\n/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _utils_opening_hours_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/opening-hours.js */ \"./src/utils/opening-hours.js\");\n\n\nconst hours = document.querySelector('#hours');\nfunction hoursLoad({\n  date\n}) {\n  const opening = _utils_opening_hours_js__WEBPACK_IMPORTED_MODULE_1__.openingHours.map(hour => {\n    // Recuperando somente a hora\n    const [scheduleHour] = hour.split(\":\");\n\n    // Adiciona a hora na date e verifica se está no passado\n    const isHourPast = dayjs__WEBPACK_IMPORTED_MODULE_0___default()(date).add(scheduleHour, \"hour\").isAfter(dayjs__WEBPACK_IMPORTED_MODULE_0___default()());\n    return {\n      hour: hour,\n      avaliable: isHourPast\n    };\n  });\n\n  // Renderizar os horários\n  opening.forEach(({\n    hour,\n    avaliable\n  }) => {\n    const li = document.createElement('li');\n    li.classList.add(\"hour\");\n    li.classList.add(avaliable ? \"hour-avaliable\" : \"hour-unvaliable\");\n    li.textContent = hour;\n    hour.append(li);\n  });\n}\n\n//# sourceURL=webpack://Projeto_-_Hairday/./src/modules/form/hours-load.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   hoursLoad: () => (/* binding */ hoursLoad)\n/* harmony export */ });\n/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dayjs */ \"./node_modules/dayjs/dayjs.min.js\");\n/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _utils_opening_hours_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/opening-hours.js */ \"./src/utils/opening-hours.js\");\n/* harmony import */ var _hours_click_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./hours-click.js */ \"./src/modules/form/hours-click.js\");\n\n\n\nconst hours = document.querySelector('#hours');\nfunction hoursLoad({\n  date\n}) {\n  const opening = _utils_opening_hours_js__WEBPACK_IMPORTED_MODULE_1__.openingHours.map(hour => {\n    // Recuperando somente a hora\n    const [scheduleHour] = hour.split(\":\");\n\n    // Adiciona a hora na date e verifica se está no passado\n    const isHourPast = dayjs__WEBPACK_IMPORTED_MODULE_0___default()(date).add(scheduleHour, \"hour\").isAfter(dayjs__WEBPACK_IMPORTED_MODULE_0___default()());\n    return {\n      hour: hour,\n      avaliable: true // isHourPast\n    };\n  });\n\n  // Renderizar os horários\n  opening.forEach(({\n    hour,\n    avaliable\n  }) => {\n    const li = document.createElement('li');\n    li.classList.add(\"hour\");\n    li.classList.add(avaliable ? \"hour-avaliable\" : \"hour-unavailable\");\n    li.textContent = hour;\n    if (hour === \"9:00\") {\n      hourHeaderAdd(\"Manhã\");\n    } else if (hour === \"13:00\") {\n      hourHeaderAdd(\"Tarde\");\n    } else if (hour === \"18:00\") {\n      hourHeaderAdd(\"Noite\");\n    }\n    hours.append(li);\n  });\n  (0,_hours_click_js__WEBPACK_IMPORTED_MODULE_2__.hoursClick)();\n}\nfunction hourHeaderAdd(title) {\n  const header = document.createElement('li');\n  header.classList.add('hour-period');\n  header.textContent = title;\n  hours.append(header);\n}\n\n//# sourceURL=webpack://Projeto_-_Hairday/./src/modules/form/hours-load.js?\n}");
 
 /***/ },
 

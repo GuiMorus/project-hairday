@@ -1,5 +1,10 @@
 {
-    "schedules": [
-        
-    ]
+  "schedules": [
+    {
+      "id": "XW9gqBsLBts",
+      "name": "Roberto Silva",
+      "when": "2026-09-24T13:00:00.000Z"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

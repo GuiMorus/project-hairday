@@ -47,4 +47,6 @@ form.onsubmit = async (event) => {
         alert("Não foi possível realizar o agendamento")
         console.log(error)
     }
+
+    
 }

@@ -18,7 +18,7 @@ form.onsubmit = async (event) => {
 
     try{
         // Recuperando o nome do cliente
-        const name = clientName.value.trim()
+        const name = clientName.value.trim().toLowerCase()
         if(!name){
             return alert("Informe o nome do cliente")
         }

@@ -3,8 +3,6 @@ export function hoursClick(){
     
     hours.forEach((available) => {
         available.addEventListener("click", (selected) => {
-
-            console.log("clicou")
             
             // Remove a classe hour-selected de todas as li não selecioandas
             hours.forEach((hour) => {

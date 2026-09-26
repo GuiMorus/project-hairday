@@ -66,8 +66,6 @@ Neste projeto pratiquei:
 
 ## 🔗 Projeto
 
-- **Deploy:** [Project - Hairday](https://guimorus.github.io/project-hairday/)
-
 - **Forked Project: GitHub** - [Hairday Template, by Rocketseat](https://github.com/rocketseat-education/hairday-template)
 
 ## 🎖 Créditos
